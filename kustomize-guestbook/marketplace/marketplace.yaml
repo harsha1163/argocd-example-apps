@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: hcp-mart-schema-
+  generateName: hcp-mart-schema-
   annotations:
     argocd.argoproj.io/sync-options: Replace=true
     argocd.argoproj.io/compare-options: IgnoreExtraneous
