@@ -1,0 +1,41 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: hcp-mart-schema-
+  labels:
+    app.kubernetes.io/instance: hcp-mart-schema
+    app.kubernetes.io/name: hcp-mart-schema
+spec:
+  #ttlSecondsAfterFinished: 130
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/instance: hcp-mart-schema
+        app.kubernetes.io/name: hcp-mart-schema
+        #job-name: hcp-mart-schema
+    spec:
+      imagePullSecrets:
+      - name: hcp-reg-read-only
+      volumes:
+      - configMap:
+          name: hcp-ms-config
+        name: config
+      containers:
+      - name: hcp-mart-schema
+        image: hcp-harbor.core.magellancloud.com/hybridcloudplatform/marketplace-schema:0.0.0
+        imagePullPolicy: IfNotPresent
+        volumeMounts:
+        - mountPath: /workspace/source/apps/hcp-mart-schema/config
+          name: config
+        env:
+        - name: KUBERNETES_CONFIG_ENABLED
+          value: "true"
+        - name: db_schema
+          valueFrom:
+            secretKeyRef:
+              name: hcp-microservice-secrets
+              key: db_schema_marketplace  
+        envFrom:
+        - secretRef:
+            name: hcp-microservice-secrets
+      restartPolicy: Never   
