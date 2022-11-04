@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hcp-mart-schema
+  annotations:
+      #argocd.argoproj.io/sync-options: Replace=true
+      argocd.argoproj.io/hook: PostSync
+      #argocd.argoproj.io/hook-delete-policy: HookSucceeded
+  labels:
+    app.kubernetes.io/instance: hcp-mart-schema
+    app.kubernetes.io/name: hcp-mart-schema
+spec:
+  #ttlSecondsAfterFinished: 130
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: hcp-mart-schema
+      app.kubernetes.io/name: hcp-mart-schema
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/instance: hcp-mart-schema
+        app.kubernetes.io/name: hcp-mart-schema
+    spec:
+      containers:
+        - name: hcp-mart-schema
+          image: alpine-3.8
+          imagePullPolicy: IfNotPresent
+      #restartPolicy: Never
+      
