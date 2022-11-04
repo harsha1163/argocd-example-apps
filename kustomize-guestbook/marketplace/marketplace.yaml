@@ -2,8 +2,8 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: hcp-mart-schema-
-  #annotations:
-    #argocd.argoproj.io/hook: PostSync
+  annotations:
+    argocd.argoproj.io/hook: PostSync
     #argocd.argoproj.io/hook-delete-policy: HookSucceeded
   labels:
     app.kubernetes.io/instance: hcp-mart-schema
