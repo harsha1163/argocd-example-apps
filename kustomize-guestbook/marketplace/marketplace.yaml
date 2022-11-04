@@ -2,6 +2,9 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: hcp-mart-schema-
+  annotations:
+    compare-options: IgnoreExtraneous
+    sync-options: Prune=false,Validate=false,Force=true,ConfigGC=enabled
   labels:
     app.kubernetes.io/instance: hcp-mart-schema
     app.kubernetes.io/name: hcp-mart-schema
