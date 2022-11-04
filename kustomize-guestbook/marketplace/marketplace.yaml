@@ -3,8 +3,8 @@ kind: Job
 metadata:
   name: hcp-mart-schema-
   annotations:
-    compare-options: IgnoreExtraneous
-    sync-options: Prune=false,Validate=false,Force=true,ConfigGC=enabled
+    argocd.argoproj.io/sync-options: Replace=true
+    argocd.argoproj.io/compare-options: IgnoreExtraneous
   labels:
     app.kubernetes.io/instance: hcp-mart-schema
     app.kubernetes.io/name: hcp-mart-schema
