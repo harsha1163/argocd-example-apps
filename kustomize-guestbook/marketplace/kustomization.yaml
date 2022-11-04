@@ -3,6 +3,7 @@ kind: Kustomization
 
 resources:
   - marketplace.yaml
+  - mart.yaml
 
 patches:
   - target:
