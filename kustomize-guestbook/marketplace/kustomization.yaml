@@ -4,13 +4,13 @@ kind: Kustomization
 resources:
   - marketplace.yaml
 
-#patches:
-#  - target:
-#      group: batch
-#      version: v1
-#      kind: Job
-#      name: hcp-mart-schema-
-#    patch: |-
-#      - op: move
-#        from: /metadata/name
-#        path: /metadata/generateName   
+patches:
+  - target:
+      group: batch
+      version: v1
+      kind: Job
+      name: hcp-mart-schema-
+    patch: |-
+      - op: move
+        from: /metadata/name
+        path: /metadata/generateName   
