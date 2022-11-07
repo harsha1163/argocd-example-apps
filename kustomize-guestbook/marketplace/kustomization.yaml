@@ -3,7 +3,6 @@ kind: Kustomization
 
 resources:
   - marketplace.yaml
-  - nginx.yaml
 #patches:
 #  - target:
 #      group: batch
