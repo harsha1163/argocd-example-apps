@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: hcp-mart-schema-
+  name: hcp-mart-schema
   annotations:
     argocd.argoproj.io/hook: PostSync
     argocd.argoproj.io/hook-delete-policy: HookSucceeded
@@ -19,6 +19,6 @@ spec:
     spec:
       containers:
       - name: hcp-mart-schema
-        image: alpsd
+        image: alpine:3.8
         imagePullPolicy: IfNotPresent
       restartPolicy: Never   
