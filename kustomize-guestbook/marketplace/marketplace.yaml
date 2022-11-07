@@ -19,6 +19,6 @@ spec:
     spec:
       containers:
       - name: hcp-mart-schema
-        image: alpi
+        image: alpine:3.8
         imagePullPolicy: IfNotPresent
       restartPolicy: Never   
