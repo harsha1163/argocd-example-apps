@@ -1,0 +1,19 @@
+ingress:
+    enabled: false
+    annotations:
+      kubernetes.io/ingress.class: traefik-cert-manager 
+mongodb:
+  service:
+    nodePort: false      
+testkube-api:
+  uiIngress:
+    annotations:
+      kubernetes.io/ingress.class: traefik-cert-manager 
+  cliIngress:  
+      annotations:
+        kubernetes.io/ingress.class: traefik-cert-manager    
+testkube-dashboard:
+  enabled: false
+  ingress:
+    annotations:
+      kubernetes.io/ingress.class: traefik-cert-manager 
