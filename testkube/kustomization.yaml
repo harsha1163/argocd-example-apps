@@ -1,0 +1,20 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+# resources:
+  # - namespace.yaml
+  # - mongodb.yaml
+  # - testkubeapi.yaml
+  # - dashboard.yaml
+  # - secret.yaml
+  # - operator.yaml
+  # - upgrade.yaml
+  # - certificate.yaml
+
+helmCharts:
+- name: testkube #The name of the chart
+  repo: https://kubeshop.github.io/helm-charts #The URL used to locate the chart
+  version: "1.5.28" #The version of the chart
+  releaseName: hcp-testkube #Replaces RELEASE_NAME in the chart template output
+  #namespace: default #Sets the target namespace for a release
+  valuesFile: testkube_values.yaml
